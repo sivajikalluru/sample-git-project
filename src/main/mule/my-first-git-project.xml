@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="35eac1e7-bca6-40a7-bd27-4e289282dbc7" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="my-first-git-projectFlow" doc:id="890b7ca2-4c9b-42bf-a69b-4c4bbf95a80a" >
+		<http:listener doc:name="Listener" doc:id="70c935ee-d59d-4771-bf9f-68187bf6ab9d" config-ref="HTTP_Listener_config" path="/git"/>
+		<set-payload value="my first git project" doc:name="Set Payload" doc:id="887ed2d1-2556-4955-aac9-896db0d56d3e" />
+		<logger level="INFO" doc:name="Logger" doc:id="a42a4e78-4010-4b6d-95f3-ccb5f8ab431e" message="my first git project"/>
+	</flow>
+</mule>
